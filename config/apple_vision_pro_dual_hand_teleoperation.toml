@@ -1,0 +1,192 @@
+# Logger configuration
+[logger_config]
+# TODO options debug info warning error
+log_level = "info"
+
+[simulator_config]
+# Width of the simulator window
+width = 1920
+# Height of the simulator window
+height = 1080
+# Synchronize loads
+sync_loads = true
+# Whether to use headless mode
+headless = false
+# Renderer type
+renderer = "RayTracedLighting"
+
+[world_config]
+# Whether to add a default ground plane
+add_default_ground_plane = true
+
+[environment_config]
+name = "table_grasp_env"
+
+# Assets section
+[environment_config.assets]
+
+# Side Table configuration
+[environment_config.assets.side_table]
+# USD File path relative to the project top path
+file_path = "assets/environments/table_grasp/side_table.usd"
+# Whether to get from Isaac Sim official assets
+get_from_isaac_sim_assets = false
+# Prim path in Isaac Sim
+prim_path = "/World/environment/side_table"
+# Position
+position = [0.3, 0.0, 0.0]
+# Orientation(w,x,y,z)
+orientation = [0.70711, 0.0, 0.0, 0.70711]
+# Scale
+scale = [1.0, 1.0, 1.0]
+
+# Apple configuration
+[environment_config.assets.apple]
+# USD File path relative to the project top path
+file_path = "assets/environments/table_grasp/apple.usd"
+# Whether to get from Isaac Sim official assets
+get_from_isaac_sim_assets = false
+# Prim path in Isaac Sim
+prim_path = "/World/environment/apple"
+# Position
+position = [0.22643263638019562, -0.11227834224700928, 0.8391183922611153]
+# Orientation(w,x,y,z)
+orientation = [1.0, 0.0, 0.0, 0.0]
+# Scale
+scale = [1.0, 1.0, 1.0]
+
+# Tim Can configuration
+[environment_config.assets.tim_can]
+# USD File path relative to the project top path
+file_path = "assets/environments/table_grasp/tim_can.usd"
+# Whether to get from Isaac Sim official assets
+get_from_isaac_sim_assets = false
+# Prim path in Isaac Sim
+prim_path = "/World/environment/tim_can"
+# Position
+position = [0.2607685916536298, 0.1355617629654738, 0.8515285578360823]
+# Orientation(w,x,y,z)
+orientation = [1.0, 0.0, 0.0, 0.0]
+# Scale
+scale = [1.0, 1.0, 1.0]
+
+[robot_group_config]
+name = "dual_inspire_dexterous_hand"
+
+# Assets section
+[robot_group_config.assets]
+
+[robot_group_config.assets.left_hand]
+# USD File path relative to the project top path
+file_path = "assets/robots/inspire_hand/inspire_hand_left.usd"
+# Whether to get from Isaac Sim official assets
+get_from_isaac_sim_assets = false
+# Prim path in Isaac Sim
+prim_path = "/World/robot_group/left_hand"
+# Position
+position = [0.08, 0.25, 1.0]
+# Orientation(w,x,y,z)
+orientation = [0,0,0,1]
+# Robot name in Isaac Sim scene
+name_in_scene = "left_hand"
+
+[robot_group_config.assets.right_hand]
+# USD File path relative to the project top path
+file_path = "assets/robots/inspire_hand/inspire_hand_right.usd"
+# Whether to get from Isaac Sim official assets
+get_from_isaac_sim_assets = false
+# Prim path in Isaac Sim
+prim_path = "/World/robot_group/right_hand"
+# Position
+position = [0.08, -0.25, 1.0]
+# Orientation(w,x,y,z)
+orientation = [0,0,0,1]
+# Robot name in Isaac Sim scene
+name_in_scene = "right_hand"
+
+[camera_group_config]
+name = "stereo_camera"
+# Assets section
+[camera_group_config.assets]
+
+
+
+
+# Assets section
+[camera_group_config.assets]
+
+[camera_group_config.assets.left_eye_camera]
+viewport_name="left_eye_viewport"
+name_in_scene = "left_eye_camera"
+prim_path = "/World/left_eye_camera"
+# Camera position
+position = [-0.4, 0.0, 1.7]
+# Camera orientation(w,x,y,z)
+orientation = [0.66446, 0.24184, -0.24184, -0.66446]
+# The distance between your pupils, default is zed mini baseline
+# inter_pupillary_distance = 0.0628773
+position_offset=[0,-0.03143865,0]
+frequency = 60
+width = 1920
+height = 1080
+fx = 1540.61
+fy = 1540.78
+cx = 977.3
+cy = 514.939
+distortion_coefficients = [-0.0409717, 0.0490727, -0.0563328, 0.0310463]
+pixel_size = 0.003
+f_stop = 1.8
+focus_distance = 0.6
+projection_type = "fisheyePolynomial"
+
+[camera_group_config.assets.right_eye_camera]
+viewport_name="right_eye_viewport"
+name_in_scene = "right_eye_camera"
+prim_path = "/World/right_eye_camera"
+# Camera position
+position = [-0.4, 0.0, 1.7]
+# Camera orientation(w,x,y,z)
+orientation = [0.66446, 0.24184, -0.24184, -0.66446]
+# The distance between your pupils, default is zed mini baseline
+# inter_pupillary_distance = 0.0628773
+position_offset=[0,+0.03143865,0]
+
+frequency = 60
+width = 1920
+height = 1080
+fx = 1542.41
+fy = 1542.75
+cx = 954.19
+cy = 551.899
+distortion_coefficients = [-0.0398677, 0.0464172, -0.0536068, 0.0307266]
+pixel_size = 0.003
+f_stop = 1.8
+focus_distance = 0.6
+projection_type = "fisheyePolynomial"
+
+# Configuration for the human hand processor module
+[human_hand_processor]
+# Input device name (options: rgb, apple_vision_pro)
+input_device = "rgb"
+
+# Configuration for the left hand
+[human_hand_processor.left_hand]
+# Enable or disable the left hand processor
+enabled = true
+# TODO
+selfie = false
+# Directory containing the URDF (Unified Robot Description Format) files for the left hand
+urdf_dir = "assets/robots"
+# Path to the dex-retargeting configuration file for the left hand
+dex_retargeting_config_path = "config/dex_retargeting_config/inspire_hand_left_dexpilot.yml"
+
+# Configuration for the right hand
+[human_hand_processor.right_hand]
+# Enable or disable the right hand processor
+enabled = true
+# TODO
+selfie = false
+# Directory containing the URDF (Unified Robot Description Format) files for the right hand
+urdf_dir = "assets/robots"
+# Path to the dex-retargeting configuration file for the right hand
+dex_retargeting_config_path = "config/dex_retargeting_config/inspire_hand_right_dexpilot.yml"

@@ -1,0 +1,6 @@
+[submodule "auro_puppeteer/libs/dex-retargeting"]
+	path = auro_puppeteer/libs/dex-retargeting
+	url = https://github.com/dexsuite/dex-retargeting.git
+[submodule "auro_puppeteer/libs/TeleVision"]
+	path = auro_puppeteer/libs/TeleVision
+	url = https://github.com/OpenTeleVision/TeleVision.git

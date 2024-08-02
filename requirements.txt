@@ -1,0 +1,45 @@
+# Utils
+auro_utils
+h5py
+toml
+
+# Dex retargting
+# dex_retargeting
+
+# File IO
+
+
+# UI
+# auro_utils
+# tqdm
+
+# Math
+# numpy
+# scipy
+
+# 
+# Development
+# toml
+# tqdm
+
+# File
+# pandas
+# tabulate
+
+# # Plot
+# opencv-python
+# matplotlib
+
+# # Math
+# scipy
+# numpy
+# open3d
+
+# Simulation
+# isaac_sim
+
+# Inference
+# onnxruntime-gpu
+
+
+# TODO@HERMAN

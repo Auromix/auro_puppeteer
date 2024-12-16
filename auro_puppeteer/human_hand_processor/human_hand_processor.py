@@ -17,8 +17,8 @@
 # limitations under the License.
 
 from dex_retargeting.retargeting_config import RetargetingConfig
-from auro_utils.loggers.logger import Logger
-from auro_utils.io.file_operator import get_project_top_level_dir
+from auro_utils import Logger
+import auro_utils.manager as au
 import cv2
 import os
 import toml
@@ -46,10 +46,10 @@ class RGBCameraProcessor:
         # Init Left hand
         if self.left_hand_config["enabled"]:
             left_hand_urdf_dir = os.path.join(
-                get_project_top_level_dir(), self.left_hand_config["urdf_dir"]
+                au.get_project_top_level_dir(), self.left_hand_config["urdf_dir"]
             )
             left_hand_dex_retargeting_config_path = os.path.join(
-                get_project_top_level_dir(),
+                au.get_project_top_level_dir(),
                 self.left_hand_config["dex_retargeting_config_path"],
             )
 
@@ -68,10 +68,10 @@ class RGBCameraProcessor:
         # Init Right hand
         if self.right_hand_config["enabled"]:
             right_hand_urdf_dir = os.path.join(
-                get_project_top_level_dir(), self.right_hand_config["urdf_dir"]
+                au.get_project_top_level_dir(), self.right_hand_config["urdf_dir"]
             )
             right_hand_dex_retargeting_config_path = os.path.join(
-                get_project_top_level_dir(),
+                au.get_project_top_level_dir(),
                 self.right_hand_config["dex_retargeting_config_path"],
             )
 
@@ -101,7 +101,7 @@ class HumanHandProcessor:
         self.right_hand_status = None
         self.left_hand_status = None
         # Get project top level dir
-        self.project_top_level_dir = get_project_top_level_dir()
+        self.project_top_level_dir = au.get_project_top_level_dir()
         config_path = os.path.join(self.project_top_level_dir, config)
         # Load config
         self.config = toml.load(config_path)
